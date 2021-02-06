@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+ {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f1f1f1;
+  padding: 20px;
+  font-family: Arial;
+}
+.main {
+  max-width: 1000px;
+  margin: auto;
+}
+h1 {
+  font-size: 50px;
+  word-break: break-all;
+}
+.row {
+  margin: 10px -16px;
+}
+.row,
+.row > .column {
+  padding: 8px;
+}
+.column {
+  float: left;
+  width: 33.33%;
+  display: none; 
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.content {
+  background-color: white;
+  padding: 10px;
+}
+.show {
+  display: block;
+}
+.btn {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: white;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: #ddd;
+}
+.btn.active {
+  background-color: #666;
+  color: white;
+}
+</style>
+</head>
+
+<!-- MAIN (Center website) -->
+<div class="main">
+
+<h1 style="background-color:DodgerBlue">Portfolio.com</h1>
+</style>
+<hr>
+
+<h2 style = "background-color:Yellow">PORTFOLIO</h2>
+</style>
+
+<div id="myBtnContainer">
+  <button class="btn active" onclick="filterSelection('About Me')">About Me</button>
+  <button class="btn" onclick="filterSelection('My SkillSet')"> My SkillSet</button>
+  <button class="btn" onclick="filterSelection('My Work')"> My Work</button>
+</div>
+
+<!-- Portfolio Gallery Grid -->
+<div class="row">
+  <div class ="About Me">
+    <div class="content">
+	<body style = "background-color:Wheat">
+	<font color = #C71585>
+	  <h4>About Me</h4></font>
+      <p>Hello peers I m Sujayshankar Biswas.<br> I m a 3rd year Btech student currently studying in KIIT University in IT.<br> I stay in Kolkata.</p>
+	</body>
+    </div>
+ </div>
+<div class="column My SkillSet">
+     <div class ="content"> 
+	 <font color = #6A5ACD>
+	  <h4>My SkillSet</h4></font>
+	  <p>I have knowledge and advanced skills on C/C++/Java/Python.<br>
+	     I have also mastered on AWS Cloud and I have done training on Redhat Ansible Devops Automation.<br>
+		 I have also knack on Competitive Coding and I have participated in many hackathons and secured good ranks.<br>
+		 I have also took part in Ctf (Capture the Flag) Ethical Hacking Challenges.<br>
+		 I have also done research on Mars Rover hackathons.<br>
+         I have also done complete training on Docker and on Microsoft AI Classroom skills.<br>
+         I have also recently participated on IIT KGP hackathons Code-O-Soccer.<br></p>
+	  </div>
+</div>
+<div class="column My Work">
+     <div class ="content"> 
+	 <font color = #F08080>
+	   <h4>My Work</h4></font>
+	   <p> I have done work on Research Android App Dev 3 months experience on Taghive INC. I have also worked as Cyber Security Intern <br>
+          on Kiit Apogeio Society. I have also worked as Cloud Intern for Swayam Chalit Gaadi Foundation.<br>
+		  I have also worked as digital marketing at Desire Foundation. I have also worked as Research Marketing Intern at Homeflic Wegrow<br>
+          I have made User Interactive Autonomous Operating System Project using Python.</p>
+      </div>
+ </div>
+</div>
+<!-- END MAIN -->
+</div>
+
+<script>
+filterSelection("all")
+function filterSelection(c) {
+  var x, i;
+  x = document.getElementsByClassName("column");
+  if (c == "all") c = "";
+  for (i = 0; i < x.length; i++) {
+    w3RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+  }
+}
+
+function w3AddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+  }
+}
+
+function w3RemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);     
+    }
+  }
+  element.className = arr1.join(" ");
+}
+var btnContainer = document.getElementById("myBtnContainer");
+var btns = btnContainer.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function(){
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+</script>
+
+</body>
+</html>
